@@ -40,13 +40,13 @@ const AdminDashboard: React.FC = () => {
         const fetchAdminData = async () => {
             try {
                 const [statsRes, appsRes, jobsRes] = await Promise.all([
-                    fetch('http://localhost:5000/api/applications/stats', {
+                    fetch('/api/applications/stats', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('http://localhost:5000/api/applications', {
+                    fetch('/api/applications', {
                         headers: { 'Authorization': `Bearer ${token}` }
                     }),
-                    fetch('http://localhost:5000/api/jobs')
+                    fetch('/api/jobs')
                 ]);
 
                 const statsData = await statsRes.json();
@@ -70,7 +70,7 @@ const AdminDashboard: React.FC = () => {
         if (!window.confirm('¿Estás seguro de eliminar esta postulación?')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/applications/${id}`, {
+            const res = await fetch(`/api/applications/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -90,7 +90,7 @@ const AdminDashboard: React.FC = () => {
         if (!window.confirm('¿Estás seguro de eliminar este empleo? Se borrarán también las postulaciones asociadas.')) return;
 
         try {
-            const res = await fetch(`http://localhost:5000/api/jobs/${id}`, {
+            const res = await fetch(`/api/jobs/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

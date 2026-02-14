@@ -31,7 +31,7 @@ const Jobs: React.FC = () => {
   const [appMessage, setAppMessage] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/jobs')
+    fetch('/api/jobs')
       .then(res => res.json())
       .then(data => {
         setJobs(data);
@@ -71,7 +71,7 @@ const Jobs: React.FC = () => {
     setAppStatus('idle');
 
     try {
-      const response = await fetch('http://localhost:5000/api/applications', {
+      const response = await fetch('/api/applications', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
