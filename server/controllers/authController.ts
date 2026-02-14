@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { initDB } from '../config/db';
+import { sendWelcomeEmail } from '../services/emailService';
 
 const SECRET_KEY = process.env.JWT_SECRET || 'bdec_secret_key_2026';
 
@@ -29,6 +30,9 @@ export const register = async (req: Request, res: Response) => {
             SECRET_KEY,
             { expiresIn: '24h' }
         );
+
+        // Send welcome email (asynchronous, don't wait to respond)
+        sendWelcomeEmail(newUser.email, newUser.name);
 
         res.status(201).json({
             message: 'Usuario registrado exitosamente',
