@@ -1,6 +1,6 @@
-# Guion Sugerido para Video de Intro: BDEC
+# Guion Sugerido para Video de Intro: ProLinker
 
-Este guion está diseñado para un video de unos 60-90 segundos que resuma la esencia de **BDEC (Banco de Datos de Empleos Comunitarios)**.
+Este guion está diseñado para un video de unos 60-90 segundos que resuma la esencia de **ProLinker (Banco de Datos de Empleos Comunitarios)**.
 
 ---
 
@@ -8,7 +8,7 @@ Este guion está diseñado para un video de unos 60-90 segundos que resuma la es
 
 ### 1. El Gancho (0:00 - 0:15)
 **Qué decir:**
-> "¿Buscas una oportunidad laboral cerca de ti o quieres fortalecer el talento en tu propia comunidad? Bienvenidos a BDEC, el Banco de Datos de Empleos Comunitarios."
+> "¿Buscas una oportunidad laboral cerca de ti o quieres fortalecer el talento en tu propia comunidad? Bienvenidos a ProLinker, el Banco de Datos de Empleos Comunitarios."
 
 **Qué mostrar:**
 - Pantalla de inicio con el diseño moderno y profesional.
@@ -16,7 +16,7 @@ Este guion está diseñado para un video de unos 60-90 segundos que resuma la es
 
 ### 2. El Problema y la Solución (0:15 - 0:30)
 **Qué decir:**
-> "A veces, las mejores oportunidades están a la vuelta de la esquina, pero no tenemos dónde verlas. BDEC conecta a empresas locales con personas talentosas, simplificando la búsqueda y postulación en un entorno seguro y moderno."
+> "A veces, las mejores oportunidades están a la vuelta de la esquina, pero no tenemos dónde verlas. ProLinker conecta a empresas locales con personas talentosas, simplificando la búsqueda y postulación en un entorno seguro y moderno."
 
 **Qué mostrar:**
 - Vista de "Empleos" mostrando las diferentes vacantes.
@@ -40,11 +40,11 @@ Este guion está diseñado para un video de unos 60-90 segundos que resuma la es
 
 ### 5. Cierre y Call to Action (1:15 - 1:30)
 **Qué decir:**
-> "BDEC no es solo una bolsa de empleo, es una herramienta para el crecimiento de nuestra comunidad. Únete hoy en `bdec.onrender.com`. ¡Te esperamos!"
+> "ProLinker no es solo una bolsa de empleo, es una herramienta para el crecimiento de nuestra comunidad. Únete hoy en `prolinker.onrender.com`. ¡Te esperamos!"
 
 **Qué mostrar:**
 - Regreso a la pantalla principal.
-- Logo de BDEC en grande.
+- Logo de ProLinker en grande.
 
 ---
 

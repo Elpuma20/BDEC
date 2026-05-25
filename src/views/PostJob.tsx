@@ -17,7 +17,8 @@ const PostJob: React.FC = () => {
         salary: '',
         modality: 'Presencial',
         requirements: '',
-        description: ''
+        description: '',
+        is_featured: false
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +68,7 @@ const PostJob: React.FC = () => {
                     </div>
                     <h2>¡Propuesta Enviada!</h2>
                     <p style={{ color: 'var(--text-muted)', marginTop: '16px' }}>
-                        Tu oferta ha sido recibida y será revisada según los estándares del BDEC. Gracias por contribuir al empleo local.
+                        Tu oferta ha sido recibida y será revisada según los estándares de ProLinker. Gracias por contribuir al empleo local.
                     </p>
                     <button onClick={() => setSubmitted(false)} className="btn btn-primary" style={{ marginTop: '24px' }}>
                         Publicar otra vacante
@@ -198,6 +199,20 @@ const PostJob: React.FC = () => {
                             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                             required
                         ></textarea>
+                    </div>
+
+                    <div className="form-group checkbox-group" style={{ flexDirection: 'row', alignItems: 'flex-start', gap: '12px', marginTop: '8px', padding: '16px', background: 'rgba(245, 158, 11, 0.05)', borderRadius: '12px', border: '1px dashed rgba(245, 158, 11, 0.3)' }}>
+                        <input
+                            type="checkbox"
+                            id="is_featured"
+                            checked={formData.is_featured}
+                            onChange={(e) => setFormData({ ...formData, is_featured: e.target.checked })}
+                            style={{ width: '20px', height: '20px', cursor: 'pointer', marginTop: '2px' }}
+                        />
+                        <label htmlFor="is_featured" style={{ cursor: 'pointer', fontWeight: 600, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                            <span style={{ color: '#d97706' }}>★ Destacar esta publicación (Premium)</span>
+                            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 400, lineHeight: 1.4 }}>Aparecerá fija en la parte superior del listado general y con un diseño distinguido para atraer a los mejores candidatos locales.</span>
+                        </label>
                     </div>
 
                     <button type="submit" className="btn btn-primary btn-lg w-full" disabled={loading || !user}>

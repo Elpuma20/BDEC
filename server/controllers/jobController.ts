@@ -4,7 +4,7 @@ import { initDB } from '../config/db';
 export const getAllJobs = async (req: Request, res: Response) => {
     try {
         const db = await initDB();
-        const jobs = await db.all('SELECT * FROM jobs ORDER BY posted_at DESC');
+        const jobs = await db.all('SELECT * FROM jobs ORDER BY is_featured DESC, posted_at DESC');
         res.json(jobs);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener empleos', error });
@@ -12,13 +12,14 @@ export const getAllJobs = async (req: Request, res: Response) => {
 };
 
 export const createJob = async (req: Request, res: Response) => {
-    const { title, company, location, category, salary, modality, requirements, description } = req.body;
+    const { title, company, location, category, salary, modality, requirements, description, is_featured } = req.body;
+    const isFeaturedVal = is_featured ? 1 : 0;
 
     try {
         const db = await initDB();
         const result = await db.run(
-            'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [title, company, location, category, salary, modality, requirements, description]
+            'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [title, company, location, category, salary, modality, requirements, description, isFeaturedVal]
         );
 
         const newJob = await db.get('SELECT * FROM jobs WHERE id = ?', [result.lastID]);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User as UserIcon, Lock, ArrowRight } from 'lucide-react';
+import { User as UserIcon, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
@@ -12,6 +12,7 @@ const Login: React.FC = () => {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { login: saveAuth } = useAuth();
   const navigate = useNavigate();
@@ -144,12 +145,35 @@ const Login: React.FC = () => {
               <div className="input-wrapper">
                 <Lock className="input-icon" size={18} />
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  style={{ paddingRight: '44px' }}
                 />
+                <button
+                  type="button"
+                  className="password-toggle-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  title={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+                  style={{
+                    position: 'absolute',
+                    right: '14px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    color: 'var(--text-muted)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0',
+                    transition: 'color 0.2s'
+                  }}
+                >
+                  {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
+                </button>
               </div>
             </div>
 
@@ -288,6 +312,10 @@ const Login: React.FC = () => {
           transform: translateY(-50%);
           color: var(--text-muted);
           transition: color 0.3s;
+        }
+
+        .password-toggle-btn:hover {
+          color: var(--primary) !important;
         }
 
         input:focus + .input-icon, .input-wrapper:focus-within .input-icon {

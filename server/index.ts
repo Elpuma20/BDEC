@@ -47,7 +47,7 @@ initDB().then(() => {
 
 // Basic Health Check
 app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', server: 'BDEC Backend' });
+    res.json({ status: 'ok', server: 'ProLinker Backend' });
 });
 
 app.listen(PORT, () => {

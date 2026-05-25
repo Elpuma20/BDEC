@@ -19,20 +19,20 @@ if (!process.env.EMAIL_USER || process.env.EMAIL_USER === 'your_email@example.co
 
 export const sendWelcomeEmail = async (userEmail: string, userName: string) => {
     const mailOptions = {
-        from: `"BDEC" <${process.env.EMAIL_USER || 'no-reply@bdec.com'}>`,
+        from: `"ProLinker" <${process.env.EMAIL_USER || 'no-reply@prolinker.com'}>`,
         to: userEmail,
-        subject: '¡Bienvenido a BDEC!',
+        subject: '¡Bienvenido a ProLinker!',
         html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
                 <h2 style="color: #0066ff;">¡Hola, ${userName}!</h2>
-                <p>Gracias por registrarte en <strong>BDEC (Banco de Datos de Empleos Comunitarios)</strong>.</p>
+                <p>Gracias por registrarte en <strong>ProLinker</strong>.</p>
                 <p>Ahora puedes buscar empleos, postularte y estar al tanto de las mejores oportunidades en tu comunidad.</p>
                 <div style="margin: 30px 0; text-align: center;">
                     <a href="http://localhost:5173" style="background-color: #0066ff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold;">Explorar Empleos</a>
                 </div>
-                <p style="color: #666; font-size: 0.9rem;">Si no te registraste en BDEC, puedes ignorar este correo.</p>
+                <p style="color: #666; font-size: 0.9rem;">Si no te registraste en ProLinker, puedes ignorar este correo.</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                <p style="font-size: 0.8rem; color: #999; text-align: center;">&copy; 2026 BDEC - Proyectos Universitarios</p>
+                <p style="font-size: 0.8rem; color: #999; text-align: center;">&copy; 2026 ProLinker - Proyectos Universitarios</p>
             </div>
         `,
     };

@@ -113,7 +113,7 @@ const AdminDashboard: React.FC = () => {
         <div className="admin-dashboard container py-10">
             <header className="mb-10">
                 <h1 className="text-3xl font-bold mb-2">Panel de Control</h1>
-                <p className="text-muted">Monitoreo global de la plataforma BDEC</p>
+                <p className="text-muted">Monitoreo global de la plataforma ProLinker</p>
             </header>
 
             <div className="stats-grid">

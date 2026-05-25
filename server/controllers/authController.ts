@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { initDB } from '../config/db';
 import { sendWelcomeEmail } from '../services/emailService';
 
-const SECRET_KEY = process.env.JWT_SECRET || 'bdec_secret_key_2026';
+const SECRET_KEY = process.env.JWT_SECRET || 'prolinker_secret_key_2026';
 
 export const register = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;

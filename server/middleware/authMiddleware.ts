@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
-const SECRET_KEY = process.env.JWT_SECRET || 'bdec_secret_key_2026';
+const SECRET_KEY = process.env.JWT_SECRET || 'prolinker_secret_key_2026';
 
 export const authMiddleware = (req: any, res: Response, next: NextFunction) => {
     const token = req.headers['authorization']?.split(' ')[1];

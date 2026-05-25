@@ -6,7 +6,7 @@ El error persiste porque Render está configurado manualmente para ejecutar un c
 
 Sigue estos pasos en tu cuenta de **Render.com**:
 
-1.  Entra a tu servicio **BDEC**.
+1.  Entra a tu servicio **ProLinker**.
 2.  Ve a la pestaña **"Settings"** (Configuración) en el menú de la izquierda.
 3.  Busca la sección **"Build & Deploy"**.
 4.  Verifica y cambia los siguientes campos:

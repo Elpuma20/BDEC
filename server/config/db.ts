@@ -38,9 +38,16 @@ export async function initDB() {
       modality TEXT NOT NULL DEFAULT 'Presencial',
       requirements TEXT,
       description TEXT NOT NULL,
+      is_featured INTEGER DEFAULT 0,
       posted_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  try {
+    await db.exec('ALTER TABLE jobs ADD COLUMN is_featured INTEGER DEFAULT 0');
+  } catch (e) {
+    // Column already exists, ignore
+  }
 
   // Applications Table
   await db.exec(`
@@ -57,12 +64,12 @@ export async function initDB() {
   `);
 
   // Create an admin user if not exists
-  const admin = await db.get('SELECT * FROM users WHERE email = ?', ['admin@bdec.com']);
+  const admin = await db.get('SELECT * FROM users WHERE email = ?', ['admin@prolinker.com']);
   if (!admin) {
     const hashedPassword = await bcrypt.hash('admin123', 10);
     await db.run(
       'INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)',
-      ['Administrador BDEC', 'admin@bdec.com', hashedPassword, 'admin']
+      ['Administrador ProLinker', 'admin@prolinker.com', hashedPassword, 'admin']
     );
     console.log('Admin user created');
   }
@@ -80,7 +87,8 @@ export async function initDB() {
         salary: '$450 - $550',
         modality: 'Presencial',
         requirements: '• Título de bachiller o técnico en administración\n• Manejo intermedio de Excel\n• Experiencia de 1 año en tareas de oficina',
-        description: 'Buscamos una persona organizada para apoyar en la gestión documental y atención al cliente de nuestra cooperativa.'
+        description: 'Buscamos una persona organizada para apoyar en la gestión documental y atención al cliente de nuestra cooperativa.',
+        is_featured: 1
       },
       {
         title: 'Vendedor de Piso',
@@ -150,7 +158,8 @@ export async function initDB() {
         salary: '$800 - $1200',
         modality: 'Remoto',
         requirements: '• Conocimientos sólidos en React y TypeScript\n• Capacidad de aprendizaje rápido\n• Inglés técnico',
-        description: 'Participa en el desarrollo de aplicaciones web innovadoras trabajando desde la comodidad de tu casa.'
+        description: 'Participa en el desarrollo de aplicaciones web innovadoras trabajando desde la comodidad de tu casa.',
+        is_featured: 1
       },
       {
         title: 'Cajero/a',
@@ -174,10 +183,10 @@ export async function initDB() {
       }
     ];
 
-    for (const job of vacancies) {
+    for (const job of vacancies as any[]) {
       await db.run(
-        'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-        [job.title, job.company, job.location, job.category, job.salary, job.modality, job.requirements, job.description]
+        'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [job.title, job.company, job.location, job.category, job.salary, job.modality, job.requirements, job.description, job.is_featured || 0]
       );
     }
     console.log(`${vacancies.length} realistic jobs seeded successfully.`);

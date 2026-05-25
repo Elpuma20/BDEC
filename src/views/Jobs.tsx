@@ -14,6 +14,7 @@ interface Job {
   requirements: string;
   description: string;
   posted_at: string;
+  is_featured?: number;
 }
 
 const Jobs: React.FC = () => {
@@ -189,7 +190,7 @@ const Jobs: React.FC = () => {
                 {filteredJobs.map((job) => (
                   <motion.div
                     key={job.id}
-                    className="job-card"
+                    className={`job-card ${job.is_featured === 1 ? 'featured' : ''}`}
                     layout
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -199,6 +200,9 @@ const Jobs: React.FC = () => {
                     <div className="job-card-main">
                       <div className="job-info">
                         <div className="job-tags">
+                          {job.is_featured === 1 && (
+                            <span className="job-tag featured-badge">★ Destacado</span>
+                          )}
                           <span className="job-tag category">{job.category}</span>
                           <span className={`job-tag modality ${job.modality.toLowerCase()}`}>{job.modality}</span>
                         </div>
@@ -453,12 +457,22 @@ const Jobs: React.FC = () => {
           border: 1px solid var(--border);
           border-radius: var(--radius-md);
           padding: 24px;
-          transition: border-color 0.2s, box-shadow 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .job-card.featured {
+          border-left: 4px solid #f59e0b;
+          background: linear-gradient(to right, rgba(245, 158, 11, 0.02), var(--surface));
         }
         
         .job-card:hover {
           border-color: var(--primary);
           box-shadow: var(--shadow-md);
+        }
+
+        .job-card.featured:hover {
+          border-color: #f59e0b;
+          box-shadow: 0 10px 20px -10px rgba(245, 158, 11, 0.3);
         }
         
         .job-card-main {
@@ -494,6 +508,13 @@ const Jobs: React.FC = () => {
         .job-tag.modality.remoto {
           background: rgba(16, 185, 129, 0.1);
           color: #10b981;
+        }
+
+        .job-tag.featured-badge {
+          background: rgba(245, 158, 11, 0.15);
+          color: #d97706;
+          border: 1px solid rgba(245, 158, 11, 0.3);
+          font-weight: 800;
         }
 
         /* Modal Styles */

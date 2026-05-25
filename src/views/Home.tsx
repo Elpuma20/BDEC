@@ -21,7 +21,7 @@ const Home: React.FC = () => {
                             Impulsando el Talento <span className="highlight">Local</span>
                         </h1>
                         <p className="hero-subtitle">
-                            BDEC: La plataforma centralizada para conectar ofertas comunitarias con el talento de nuestra zona. Reduciendo la brecha laboral paso a paso.
+                            ProLinker: La plataforma centralizada para conectar ofertas comunitarias con el talento de nuestra zona. Reduciendo la brecha laboral paso a paso.
                         </p>
                         <div className="hero-cta">
                             <button onClick={() => navigate('/jobs')} className="btn btn-primary btn-lg">

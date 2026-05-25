@@ -17,7 +17,8 @@ async function seed() {
                 salary: '$450 - $550',
                 modality: 'Presencial',
                 requirements: '• Título de bachiller o técnico en administración\n• Manejo intermedio de Excel\n• Experiencia de 1 año en tareas de oficina',
-                description: 'Buscamos una persona organizada para apoyar en la gestión documental y atención al cliente de nuestra cooperativa.'
+                description: 'Buscamos una persona organizada para apoyar en la gestión documental y atención al cliente de nuestra cooperativa.',
+                is_featured: 1
             },
             {
                 title: 'Vendedor de Piso',
@@ -87,7 +88,8 @@ async function seed() {
                 salary: '$800 - $1200',
                 modality: 'Remoto',
                 requirements: '• Conocimientos sólidos en React y TypeScript\n• Capacidad de aprendizaje rápido\n• Inglés técnico',
-                description: 'Participa en el desarrollo de aplicaciones web innovadoras trabajando desde la comodidad de tu casa.'
+                description: 'Participa en el desarrollo de aplicaciones web innovadoras trabajando desde la comodidad de tu casa.',
+                is_featured: 1
             },
             {
                 title: 'Cajero/a',
@@ -111,10 +113,10 @@ async function seed() {
             }
         ];
 
-        for (const job of vacancies) {
+        for (const job of vacancies as any[]) {
             await db.run(
-                'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-                [job.title, job.company, job.location, job.category, job.salary, job.modality, job.requirements, job.description]
+                'INSERT INTO jobs (title, company, location, category, salary, modality, requirements, description, is_featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [job.title, job.company, job.location, job.category, job.salary, job.modality, job.requirements, job.description, job.is_featured || 0]
             );
         }
         console.log(`${vacancies.length} realistic jobs seeded.`);

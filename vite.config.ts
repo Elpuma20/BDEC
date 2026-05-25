@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'BDEC - Banco de Datos de Empleos Comunitarios',
-        short_name: 'BDEC',
+        name: 'ProLinker - Banco de Datos de Empleos Comunitarios',
+        short_name: 'ProLinker',
         description: 'Encuentra y publica empleos en tu comunidad',
         theme_color: '#0066ff',
         icons: [

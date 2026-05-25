@@ -48,7 +48,7 @@ for (let i = 3; i <= 100; i++) {
         type: i % 3 === 0 ? 'Part-time' : 'Full-time',
         salary: `$${400 + Math.floor(Math.random() * 1000)}`,
         postedAt: '2026-02-13',
-        description: 'Esta es una vacante generada para cumplir con el banco de datos inicial del BDEC.',
+        description: 'Esta es una vacante generada para cumplir con el banco de datos inicial de ProLinker.',
         requirements: ['Certificado de salud', 'Carta de residencia'],
         category: i % 2 === 0 ? 'Servicios' : 'Comercio'
     });

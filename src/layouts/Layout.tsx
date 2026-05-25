@@ -36,8 +36,8 @@ const Layout: React.FC = () => {
       <header className="main-header glass sticky">
         <div className="container header-content">
           <NavLink to="/" className="logo">
-            <span className="logo-icon">B</span>
-            <span className="logo-text">BDEC</span>
+            <span className="logo-icon">P</span>
+            <span className="logo-text">ProLinker</span>
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -85,20 +85,20 @@ const Layout: React.FC = () => {
 
           <nav className="mobile-nav-links">
             <NavLink to="/" className="mobile-nav-link">
-              <span className="mobile-nav-icon">🏠</span> Inicio
+              Inicio
             </NavLink>
             <NavLink to="/jobs" className="mobile-nav-link">
-              <span className="mobile-nav-icon">💼</span> Empleos
+              Empleos
             </NavLink>
             <NavLink to="/post" className="mobile-nav-link">
-              <span className="mobile-nav-icon">📝</span> Publicar
+              Publicar
             </NavLink>
             <NavLink to="/about" className="mobile-nav-link">
-              <span className="mobile-nav-icon">ℹ️</span> Nosotros
+              Nosotros
             </NavLink>
             {user?.role === 'admin' && (
               <NavLink to="/admin" className="mobile-nav-link">
-                <span className="mobile-nav-icon">⚙️</span> Panel Admin
+                Panel Admin
               </NavLink>
             )}
           </nav>
@@ -128,7 +128,7 @@ const Layout: React.FC = () => {
       <footer className="main-footer">
         <div className="container footer-content">
           <div className="footer-info">
-            <h3>BDEC</h3>
+            <h3>ProLinker</h3>
             <p>Banco de Datos de Empleos Comunitarios.</p>
             <p className="copyright">&copy; 2026 Proyectos Universitarios.</p>
           </div>
