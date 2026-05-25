@@ -8,28 +8,36 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      includeAssets: ['apple-touch-icon.png', 'pwa-icon.png'],
       manifest: {
         name: 'ProLinker - Banco de Datos de Empleos Comunitarios',
         short_name: 'ProLinker',
         description: 'Encuentra y publica empleos en tu comunidad',
         theme_color: '#0066ff',
+        background_color: '#f8fafc',
+        display: 'standalone',
+        orientation: 'portrait',
         icons: [
           {
-            src: 'pwa-icon.svg',
+            src: 'pwa-icon.png',
             sizes: '192x192',
-            type: 'image/svg+xml'
+            type: 'image/png'
           },
           {
-            src: 'pwa-icon.svg',
+            src: 'pwa-icon.png',
             sizes: '512x512',
-            type: 'image/svg+xml'
+            type: 'image/png'
           },
           {
-            src: 'pwa-icon.svg',
+            src: 'pwa-icon.png',
             sizes: '512x512',
-            type: 'image/svg+xml',
+            type: 'image/png',
             purpose: 'any maskable'
+          },
+          {
+            src: 'apple-touch-icon.png',
+            sizes: '180x180',
+            type: 'image/png'
           }
         ]
       }

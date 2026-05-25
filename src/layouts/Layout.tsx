@@ -3,6 +3,7 @@ import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, LogOut, User as UserIcon } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import '../styles/global.css';
+import IOSInstallPrompt from '../components/IOSInstallPrompt';
 
 const Layout: React.FC = () => {
   const { user, logout } = useAuth();
@@ -140,6 +141,8 @@ const Layout: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      <IOSInstallPrompt />
 
       <style>{`
         .app-shell {

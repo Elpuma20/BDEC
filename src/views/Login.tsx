@@ -30,7 +30,7 @@ const Login: React.FC = () => {
 
         // Send user info to our backend to create/verify session
         // We'll use a simplified endpoint for this demonstration
-        const response = await fetch('http://localhost:5000/api/auth/google', {
+        const response = await fetch('/api/auth/google', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
